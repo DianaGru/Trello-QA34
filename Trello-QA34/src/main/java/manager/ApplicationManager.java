@@ -10,6 +10,7 @@ public class ApplicationManager {
     WebDriver wd;
 
     UserHelper user;
+    BoardHelper board;
 
 
     public void init() {
@@ -19,6 +20,8 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         user = new UserHelper(wd);
+        board = new BoardHelper(wd);
+        user.login("dianchik2004@gmail.com","Celev1981");
     }
 
     public void stop() {
@@ -28,5 +31,9 @@ public class ApplicationManager {
 
     public UserHelper getUser() {
         return user;
+    }
+
+    public BoardHelper getBoard() {
+        return board;
     }
 }

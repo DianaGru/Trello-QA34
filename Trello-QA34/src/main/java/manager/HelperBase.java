@@ -19,4 +19,14 @@ public class HelperBase {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
     }
+
+    public void pause(int millis ) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
+    }
+
 }

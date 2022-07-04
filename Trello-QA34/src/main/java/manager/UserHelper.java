@@ -1,5 +1,6 @@
 package manager;
 
+import models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,11 +13,11 @@ public class UserHelper extends HelperBase{
         click(By.cssSelector("[href='/login']"));
     }
 
-    public void fillInLoginForm() throws InterruptedException {
-        type(By.cssSelector("#user"), "dianchik2004@gmail.com");
+    public void fillInLoginForm(User user) throws InterruptedException {
+        type(By.cssSelector("#user"), user.getEmail());
         click(By.cssSelector("#login"));
         Thread.sleep(2000);
-        type(By.cssSelector("#password"), "Celev1981");
+        type(By.cssSelector("#password"), user.getEmail());
     }
 
     public void submitLogin() {
@@ -35,4 +36,13 @@ public class UserHelper extends HelperBase{
 
     }
 
+    public void login(String email, String password){
+        click(By.cssSelector("[href='/login']"));
+        type(By.cssSelector("#user"), email);
+        click(By.cssSelector("#login"));
+        pause(5000);
+        type(By.name("password"), password);
+        click(By.id("login-submit"));
+
+     }
 }
